@@ -1,5 +1,8 @@
 package com.team_blue.hls.activities;
 
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,15 +16,30 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.team_blue.hls.R;
+import com.team_blue.hls.models.Monument;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private DatabaseReference mDatabase;
+    public Bitmap myBitmap=null;
+    public String src = "https://www.google.am/search?q=sasunci+davit+monument&espv=2&biw=977&bih=510&source=lnms&tbm=isch&sa=X&ved=0ahUKEwirwe3pmrrSAhXHvBoKHXSxAL4Q_AUIBigB#imgrc=FEABkD4eDXInvM:";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Blog");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -42,6 +60,9 @@ public class Main2Activity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
     }
 
     @Override
@@ -85,6 +106,33 @@ public class Main2Activity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            DatabaseReference newPost = mDatabase.push();
+            Monument monument = new Monument();
+            monument.setName("Sasunci Davit");
+            monument.setId(10);
+            monument.setDesc("st Tigran Mets");
+            new Thread(){
+                @Override
+                public void run() {
+                    try {
+
+                        URL url = new URL(src);
+                        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                        connection.setDoInput(true);
+                        connection.connect();
+                        InputStream input = connection.getInputStream();
+                        myBitmap = BitmapFactory.decodeStream(input);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+
+                    }
+
+                }
+            };
+
+            monument.setImage(myBitmap);
+
+            newPost.child("mon1").setValue(monument);
 
         } else if (id == R.id.nav_slideshow) {
 
