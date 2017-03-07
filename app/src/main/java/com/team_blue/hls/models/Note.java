@@ -3,9 +3,11 @@ package com.team_blue.hls.models;
 
 import android.graphics.Bitmap;
 
+import java.net.URL;
+
 public class Note {
     private int id;
-    private Bitmap image;
+    private URL image;
     private int likeCount;
 
     public Note()
@@ -21,11 +23,11 @@ public class Note {
         this.id = id;
     }
 
-    public Bitmap getImage() {
+    public URL getImage() {
         return image;
     }
 
-    public void setImage(Bitmap image) {
+    public void setImage(URL image) {
         this.image = image;
     }
 

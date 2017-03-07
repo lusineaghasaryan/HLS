@@ -3,11 +3,13 @@ package com.team_blue.hls.models;
 
 import android.graphics.Bitmap;
 
+import java.net.URL;
+
 public class Monument {
     private int id;
     private String name;
     private String desc;
-    private Bitmap image;
+    private URL image;
     private Note[] notes;
     private String urlMon;
     private int x;
@@ -41,11 +43,11 @@ public class Monument {
         this.desc = desc;
     }
 
-    public Bitmap getImage() {
+    public URL getImage() {
         return image;
     }
 
-    public void setImage(Bitmap image) {
+    public void setImage(URL image) {
         this.image = image;
     }
 
