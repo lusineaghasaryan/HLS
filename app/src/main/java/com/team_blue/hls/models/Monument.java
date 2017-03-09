@@ -1,9 +1,6 @@
 package com.team_blue.hls.models;
 
 
-import android.graphics.Bitmap;
-
-import java.net.URL;
 import java.util.HashMap;
 
 public class Monument {
