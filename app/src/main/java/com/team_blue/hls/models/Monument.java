@@ -4,26 +4,28 @@ package com.team_blue.hls.models;
 import android.graphics.Bitmap;
 
 import java.net.URL;
+import java.util.HashMap;
 
 public class Monument {
-    private int id;
+    private String id;
     private String name;
     private String desc;
-    private URL image;
-    private Note[] notes;
+    private String image;
+    private HashMap<String,Note> notes;
     private String urlMon;
-    private int x;
-    private int y;
+    private double latitude;
+    private double longitude;
 
     public Monument() {
 
     }
 
-    public int getId() {
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -43,19 +45,19 @@ public class Monument {
         this.desc = desc;
     }
 
-    public URL getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(URL image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
-    public Note[] getNotes() {
+    public HashMap<String, Note> getNotes() {
         return notes;
     }
 
-    public void setNotes(Note[] notes) {
+    public void setNotes(HashMap<String, Note> notes) {
         this.notes = notes;
     }
 
@@ -67,19 +69,19 @@ public class Monument {
         this.urlMon = urlMon;
     }
 
-    public int getX() {
-        return x;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
-    public int getY() {
-        return y;
+    public double getLongitude() {
+        return longitude;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 }

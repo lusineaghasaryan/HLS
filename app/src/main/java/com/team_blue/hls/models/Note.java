@@ -6,8 +6,8 @@ import android.graphics.Bitmap;
 import java.net.URL;
 
 public class Note {
-    private int id;
-    private URL image;
+    private String id;
+    private String image;
     private int likeCount;
 
     public Note()
@@ -15,19 +15,19 @@ public class Note {
 
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public URL getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(URL image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

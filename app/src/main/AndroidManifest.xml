@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme"
         android:name=".applications.FireApp">
         <activity
-            android:name=".activities.Main2Activity"
+            android:name=".activities.MapActivity"
             android:theme="@style/AppTheme.NoActionBar"
             >
 
@@ -21,10 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.MainActivity"
-
-            ></activity>
     </application>
 
 </manifest>

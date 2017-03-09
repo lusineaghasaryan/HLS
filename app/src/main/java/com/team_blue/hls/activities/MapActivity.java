@@ -16,18 +16,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.team_blue.hls.R;
-import com.team_blue.hls.db.DbHelper;
+import com.team_blue.hls.firebase.FbHelper;
 
 
-public class Main2Activity extends AppCompatActivity
+public class MapActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
-        DbHelper dbHelper = new DbHelper(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
