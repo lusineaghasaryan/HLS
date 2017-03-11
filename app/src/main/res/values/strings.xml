@@ -9,4 +9,11 @@
     <string name="choose_brush">Choose_brush</string>
     <string name="choose_erase">Choose_erase</string>
     <string name="save_note">Save</string>
+    <string name="title_activity_map1">Map1Activity</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="action_example">Example action</string>
 </resources>

@@ -8,7 +8,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
 import com.team_blue.hls.models.Monument;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class FbHelper {
 
@@ -52,4 +55,24 @@ public class FbHelper {
 
          }
      };
+
+     public ArrayList<Monument> getMonuments(double pLatitude, double pLongitude, double pRadius)
+     {
+         ArrayList<Monument> monumentList = new ArrayList<>();
+         ArrayList<Monument> monList = new ArrayList<>();
+         monumentList.addAll(mMon.values());
+         for(int i = 0 ; i < monumentList.size(); ++i )
+         {
+             double lat = monumentList.get(i).getLatitude();
+             double lon = monumentList.get(i).getLongitude();
+             double x = lat - pLatitude;
+             double y = lon - pLongitude;
+             if(x*x + y*y <= pRadius*pRadius)
+             {
+                 monList.add(monumentList.get(i));
+             }
+         }
+
+         return monList;
+     }
 }

@@ -5,25 +5,26 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:fullBackupContent="true"
         android:name=".applications.FireApp"
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.MapActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".activities.DrawingActivity"
+            android:configChanges="orientation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.Map1Activity"
+            android:label="@string/title_activity_map1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.DrawingActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation"/>
     </application>
 
 </manifest>
